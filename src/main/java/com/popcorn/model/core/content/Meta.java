@@ -43,10 +43,7 @@ public class Meta {
 	
 	@Column(name = "parental_rating")
 	String parentalRate;
-	
-	@Column(name = "genres")
-	String genres;
-		
+			
 	@Column( name ="casts" )
 	String cast;
 	
@@ -75,8 +72,7 @@ public class Meta {
 	
 	public Meta() {} 
 	
-	public Meta( String title, int duration, LocalDate releaseDate, float imdbRate, String parentalRate,
-			String genres, String cast, String director, String studio, float trendingScore,
+	public Meta( String title, int duration, LocalDate releaseDate, float imdbRate, String parentalRate, String cast, String director, String studio, float trendingScore, List<Genre> genres,
 			List<Language> supportedLanguages, List<OTT> supportedOtts) {
 		super();
 		this.title = title;
@@ -94,9 +90,8 @@ public class Meta {
 	}
 	
 
-	public Meta(int id, String title, int duration, LocalDate releaseDate, float imdbRate, String parentalRate,
-			String genres, String cast, String director, String studio, float trendingScore,
-			List<Language> supportedLanguages) {
+	public Meta(int id, String title, int duration, LocalDate releaseDate, float imdbRate, String parentalRate, String cast, String director, String studio, float trendingScore, List<Genre> genres,
+			List<Language> supportedLanguages, List<OTT> supportedOtts) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -172,17 +167,6 @@ public class Meta {
 		this.parentalRate = parentalRate;
 	}
 
-
-	public String getGenres() {
-		return genres;
-	}
-
-
-	public void setGenres(String genres) {
-		this.genres = genres;
-	}
-
-
 	public String getCast() {
 		return cast;
 	}
@@ -232,8 +216,6 @@ public class Meta {
 		this.supportedLanguages = supportedLanguages;
 	}
 	
-	
-	
 	public List<OTT> getSupportedOtts() {
 		return supportedOtts;
 	}
@@ -242,6 +224,10 @@ public class Meta {
 		this.supportedOtts = supportedOtts;
 	}
 
+	public List<Genre> getGenres() {
+		return genres;
+	}
+	
 	public void setGenres(List<Genre> genres) {
 		this.genres = genres;
 	}

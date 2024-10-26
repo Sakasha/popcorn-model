@@ -228,4 +228,92 @@ INSERT INTO seasons (meta_id, show_id) values (56, 3), (57, 3), (58, 3);
 INSERT INTO episodes (meta_id, season_id) values (40, 7), (41, 7), (42, 7), (43, 8), (44, 8), (45, 8), (46, 9), (47, 9), (48, 9), (49, 9);
 
 
+------------------------------------------------------------------------------------
+
+INSERT INTO users (user_name, phone_number, email_Id) VALUES
+('Aarav Sharma', '9876543210', 'aarav.sharma@example.com'),
+('Vivaan Patel', '9876543211', 'vivaan.patel@example.com'),
+('Aditya Gupta', '9876543212', 'aditya.gupta@example.com'),
+('Vihaan Reddy', '9876543213', 'vihaan.reddy@example.com'),
+('Arjun Mehta', '9876543214', 'arjun.mehta@example.com'),
+('Sai Kumar', '9876543215', 'sai.kumar@example.com'),
+('Ishaan Desai', '9876543216', 'ishaan.desai@example.com'),
+('Reyansh Bansal', '9876543217', 'reyansh.bansal@example.com'),
+('Ayaan Joshi', '9876543218', 'ayaan.joshi@example.com'),
+('Krishna Roy', '9876543219', 'krishna.roy@example.com'),
+('Kabir Singh', '9876543220', 'kabir.singh@example.com'),
+('Rohan Kapoor', '9876543221', 'rohan.kapoor@example.com'),
+('Dhruv Verma', '9876543222', 'dhruv.verma@example.com'),
+('Samir Chatterjee', '9876543223', 'samir.chatterjee@example.com'),
+('Shivansh Nair', '9876543224', 'shivansh.nair@example.com'),
+('Karan Saxena', '9876543225', 'karan.saxena@example.com'),
+('Aniketh Rao', '9876543226', 'aniketh.rao@example.com'),
+('Rahul Sethi', '9876543227', 'rahul.sethi@example.com'),
+('Lakshay Tyagi', '9876543228', 'lakshay.tyagi@example.com'),
+('Aryan Prakash', '9876543229', 'aryan.prakash@example.com'),
+('Niranjan Raut', '9876543230', 'niranjan.raut@example.com'),
+('Harsi Eshwari', '9876543231', 'harsh.tiwari@example.com'),
+('Tanmay Agrawal', '9876543232', 'tanmay.agrawal@example.com'),
+('Mohit Yadav', '9876543233', 'mohit.yadav@example.com'),
+('Pankaj Singh', '9876543234', 'pankaj.singh@example.com'),
+('Vivek Sharma', '9876543235', 'vivek.sharma@example.com');
+
+
+INSERT INTO subscriptions (user_id, plan, fee, subscription_type, subscribed_otts, expiry) VALUES
+(1, 'Basic', 5.99, 'Monthly', 'NETFLIX', '2025-10-26'),
+(1, 'Premium', 12.99, 'Annual', 'PRIME', '2026-10-26'),
+(2, 'Basic', 3.99, 'Monthly', 'HOTSTAR', '2025-10-26'),
+(2, 'Ad-Free', 9.99, 'Annual', 'NETFLIX', '2026-10-26'),
+(3, 'Premium', 15.99, 'Monthly', 'PRIME', '2025-10-26'),
+(3, 'Basic', 7.99, 'Annual', 'ZEE', '2026-10-26'),
+(4, 'Ad-Free', 10.99, 'Monthly', 'NETFLIX', '2025-10-26'),
+(4, 'Premium', 12.99, 'Annual', 'HOTSTAR', '2026-10-26'),
+(5, 'Basic', 5.99, 'Monthly', 'PRIME', '2025-10-26'),
+(5, 'Ad-Free', 9.99, 'Annual', 'ZEE', '2026-10-26'),
+(6, 'Premium', 15.99, 'Monthly', 'NETFLIX', '2025-10-26'),
+(7, 'Basic', 3.99, 'Annual', 'HOTSTAR', '2026-10-26'),
+(7, 'Ad-Free', 10.99, 'Monthly', 'PRIME', '2025-10-26'),
+(8, 'Basic', 5.99, 'Monthly', 'NETFLIX', '2025-10-26'),
+(8, 'Premium', 12.99, 'Annual', 'ZEE', '2026-10-26'),
+(9, 'Ad-Free', 10.99, 'Monthly', 'HOTSTAR', '2025-10-26'),
+(10, 'Basic', 5.99, 'Annual', 'PRIME', '2026-10-26'),
+(10, 'Premium', 15.99, 'Monthly', 'NETFLIX', '2025-10-26'),
+(11, 'Ad-Free', 9.99, 'Annual', 'ZEE', '2026-10-26'),
+(12, 'Basic', 3.99, 'Monthly', 'HOTSTAR', '2025-10-26'),
+(13, 'Premium', 15.99, 'Monthly', 'PRIME', '2025-10-26'),
+(13, 'Ad-Free', 10.99, 'Annual', 'NETFLIX', '2026-10-26'),
+(14, 'Basic', 5.99, 'Monthly', 'ZEE', '2025-10-26'),
+(15, 'Ad-Free', 9.99, 'Annual', 'HOTSTAR', '2026-10-26'),
+(16, 'Premium', 12.99, 'Monthly', 'NETFLIX', '2025-10-26'),
+(16, 'Basic', 7.99, 'Annual', 'PRIME', '2026-10-26'),
+(17, 'Ad-Free', 10.99, 'Monthly', 'ZEE', '2025-10-26'),
+(18, 'Basic', 5.99, 'Annual', 'HOTSTAR', '2026-10-26'),
+(19, 'Premium', 15.99, 'Monthly', 'PRIME', '2025-10-26'),
+(19, 'Ad-Free', 9.99, 'Annual', 'NETFLIX', '2026-10-26'),
+(20, 'Basic', 5.99, 'Monthly', 'ZEE', '2025-10-26'),
+(21, 'Ad-Free', 10.99, 'Annual', 'HOTSTAR', '2026-10-26'),
+(22, 'Premium', 12.99, 'Monthly', 'NETFLIX', '2025-10-26'),
+(23, 'Basic', 3.99, 'Monthly', 'PRIME', '2025-10-26'),
+(23, 'Ad-Free', 9.99, 'Annual', 'ZEE', '2026-10-26'),
+(24, 'Basic', 5.99, 'Annual', 'HOTSTAR', '2026-10-26'),
+(25, 'Ad-Free', 10.99, 'Monthly', 'NETFLIX', '2025-10-26'),
+(25, 'Premium', 15.99, 'Annual', 'PRIME', '2026-10-26');
+
+INSERT INTO watchlist (user_id, metas_id, minutes_completed) VALUES
+(1, 1, 120),  -- Inception
+(1, 3, 160),  -- Dangal
+(2, 5, 90),   -- Spirited Away
+(2, 10, 140), -- Interstellar
+(3, 15, 175), -- The Godfather
+(4, 22, 40),  -- Dinner Party (The Office)
+(4, 26, 22),  -- The Dundies (The Office)
+(5, 30, 20),  -- The One Who Knocks (Breaking Bad)
+(5, 34, 400), -- Breaking Bad: Season 1
+(6, 8, 155),  -- Avengers: Endgame
+(6, 12, 70),  -- Gully Boy
+(7, 19, 480), -- MasterChef USA: Season 1
+(8, 21, 90),  -- Zindagi Na Milegi Dobara
+(9, 2, 47),   -- Crazy Handful of Nothin (Breaking Bad)
+(10, 18, 40); -- The Team Challenge (MasterChef USA)
+
 

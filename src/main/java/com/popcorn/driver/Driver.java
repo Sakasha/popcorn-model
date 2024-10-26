@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import com.popcorn.model.core.content.Episode;
 import com.popcorn.model.core.content.Meta;
@@ -32,16 +33,27 @@ public class Driver {
 				EntityManager entityManager = emf.createEntityManager();) {
 
 //			driver.createMovies(entityManager, driver.getMovies());
-
-			for (int i = 1; i < 20; i++) {
-				driver.readMovie(entityManager, i);
-			}
 			
-			System.out.println("\n--------------------------------\n");
-			for (int i=1; i<4; i++) {
-				
-				driver.readShow(entityManager, i);
-			}
+			Movie trial = driver.getMovie(entityManager,"Parasite");
+			trial.displayMovie();
+			
+
+			List<Movie> cinema = driver.getMovies(entityManager);
+			System.out.println("MovieList: " + cinema.stream()
+			        .map(Movie::toString)
+			        .collect(Collectors.joining(", ")));
+			
+			
+
+//			for (int i = 1; i < 20; i++) {
+//				driver.readMovie(entityManager, i);
+//			}
+//			
+//			System.out.println("\n--------------------------------\n");
+//			for (int i=1; i<4; i++) {
+//				
+//				driver.readShow(entityManager, i);
+//			}
 
 //			driver.createShows(entityManager, driver.getShows());
 //			driver.readShow(entityManager, 1);
@@ -58,6 +70,7 @@ public class Driver {
 	}
 
 	// ----------------------------------------------------------------------------------------------------------
+	//Movie CRUD and getMovie
 
 	private void createMovies(EntityManager entityManager, List<Movie> movies) {
 
@@ -69,194 +82,176 @@ public class Driver {
 
 		entityManager.getTransaction().commit();
 	}
-
-	private List<Movie> getMovies() {
-		List<Movie> result = new ArrayList<>();
-
-//		result.add(new Movie(getMeta(0)));
-		result.add(new Movie(getMeta(1)));
-		result.add(new Movie(getMeta(2)));
-
-		return result;
-
-	}
-
-//	private Meta getMeta(int key) {
-//		Meta result = null;
-//
-//		switch (key) {
-//		case 0:
-//			result = new Meta("The Matrix (Start)", 68, LocalDate.parse("2001-01-07"), 7.4f, "PG", "Scify",
-//					"KenvueReeves", "Wachoski Sisters", "Fox", 4.4f, getSupportedLanguages(key), getSupportedOtts(key));
-//			break;
-//
-//		case 1:
-//			result = new Meta("The Matrix (Middle)", 68, LocalDate.parse("2011-01-07"), 7.4f, "PG", "Scify",
-//					"KenvueReeves", "Wachoski Sisters", "Fox", 4.4f, getSupportedLanguages(key), getSupportedOtts(key));
-//			break;
-//
-//		case 2:
-//			result = new Meta("The Matrix (Third)", 68, LocalDate.parse("2021-01-07"), 7.4f, "PG", "Scify",
-//					"KenvueReeves", "Wachoski Sisters", "Fox", 4.4f, getSupportedLanguages(key), getSupportedOtts(key));
-//			break;
-//
-//		case 3:
-//			result = new Meta("The Matrix Series - 1.1", 68, LocalDate.parse("2021-01-07"), 7.4f, "PG", "Scify",
-//					"KenvueReeves", "Wachoski Sisters", "Fox", 4.4f, getSupportedLanguages(key), getSupportedOtts(key));
-//			break;
-//
-//		case 4:
-//			result = new Meta("The Matrix Series - 1.2", 68, LocalDate.parse("2021-01-07"), 7.4f, "PG", "Scify",
-//					"KenvueReeves", "Wachoski Sisters", "Fox", 4.4f, getSupportedLanguages(key), getSupportedOtts(key));
-//			break;
-//
-//		case 5:
-//			result = new Meta("The Matrix Series - 1.3", 68, LocalDate.parse("2021-01-07"), 7.4f, "PG", "Scify",
-//					"KenvueReeves", "Wachoski Sisters", "Fox", 4.4f, getSupportedLanguages(key), getSupportedOtts(key));
-//			break;
-//		case 6:
-//			result = new Meta("The Matrix Series - 2.1", 68, LocalDate.parse("2021-01-07"), 7.4f, "PG", "Scify",
-//					"KenvueReeves", "Wachoski Sisters", "Fox", 4.4f, getSupportedLanguages(key), getSupportedOtts(key));
-//			break;
-//
-//		case 7:
-//			result = new Meta("The Matrix Series - 2.2", 68, LocalDate.parse("2021-01-07"), 7.4f, "PG", "Scify",
-//					"KenvueReeves", "Wachoski Sisters", "Fox", 4.4f, getSupportedLanguages(key), getSupportedOtts(key));
-//			break;
-//
-//		case 8:
-//			result = new Meta("The Matrix Series - 2.3", 68, LocalDate.parse("2021-01-07"), 7.4f, "PG", "Scify",
-//					"KenvueReeves", "Wachoski Sisters", "Fox", 4.4f, getSupportedLanguages(key), getSupportedOtts(key));
-//			break;
-//		case 50:
-//			result = new Meta("Season 1", 68, LocalDate.parse("2021-01-07"), 7.4f, "PG", "Scify", "KenvueReeves",
-//					"Wachoski Sisters", "Fox", 4.4f, getSupportedLanguages(key), getSupportedOtts(key));
-//			break;
-//
-//		case 51:
-//			result = new Meta("Season 2", 68, LocalDate.parse("2021-01-07"), 7.4f, "PG", "Scify", "KenvueReeves",
-//					"Wachoski Sisters", "Fox", 4.4f, getSupportedLanguages(key), getSupportedOtts(key));
-//			break;
-//
-//		case 80:
-//			result = new Meta("Show 1", 68, LocalDate.parse("2021-01-07"), 7.4f, "PG", "Scify", "KenvueReeves",
-//					"Wachoski Sisters", "Fox", 4.4f, getSupportedLanguages(key), getSupportedOtts(key));
-//			break;
-//
-//		default:
-//			result = new Meta("The Matrix (Never)", 68, LocalDate.parse("2034-01-07"), 7.4f, "PG", "Scify",
-//					"KenvueReeves", "Wachoski Sisters", "Fox", 4.4f, getSupportedLanguages(key), getSupportedOtts(key));
-//			break;
-//		}
-//
-//		return result;
-//
-//	}
-
-	private List<Language> getSupportedLanguages(int key) {
-
-		List<Language> result = new ArrayList<>();
-
-		if (key <= 0) {
-			key = 1;
-		}
-
-		if (key >= 6) {
-			key = 6;
-		}
-
-		for (int i = 0; i < key; i++) {
-			result.add(getLang(i + 1));
-		}
-
-		return result;
-	}
-
-	private Language getLang(int key) {
-		Language result = null;
-		int val = key % 3;
-
-		switch (val) {
-		case 0:
-			result = Language.TAMIL;
-			break;
-
-		case 1:
-			result = Language.ENGLISH;
-			break;
-
-		case 2:
-			result = Language.HINDI;
-			break;
-
-		default:
-			result = Language.TAMIL;
-			break;
-
-		}
-
-		return result;
-	}
-
-	private List<OTT> getSupportedOtts(int key) {
-
-		List<OTT> result = new ArrayList<>();
-
-		if (key <= 0) {
-			key = 1;
-		}
-
-		if (key >= 6) {
-			key = 6;
-		}
-
-		for (int i = 0; i < key; i++) {
-			result.add(getOtt(i + 1));
-		}
-
-		return result;
-	}
-
-	private OTT getOtt(int key) {
-		OTT result = null;
-		int val = key % 3;
-
-		switch (val) {
-		case 0:
-			result = OTT.HOTSTAR;
-			break;
-
-		case 1:
-			result = OTT.HBO;
-			break;
-
-		case 2:
-			result = OTT.PRIME;
-			break;
-
-		default:
-			result = OTT.Zee;
-			break;
-
-		}
-
-		return result;
-	}
-
-	// ----------------------------------------------------------------------------------------------------------
-
+	
 	public void readMovie(EntityManager entityManager, int inputKey) {
 		entityManager.getTransaction().begin();
 
 		Integer key = Integer.valueOf(inputKey);
 		Movie movie = entityManager.find(Movie.class, key);
 		System.out.println(movie.getMeta().getTitle());
-//		System.out.println(new Gson().toJson(movie));
 
 		entityManager.getTransaction().commit();
 	}
+	
+	//get movie by name
+	public Movie getMovie(EntityManager entityManager,String name) {
+		
+		Movie movie = null;
+		
+		entityManager.getTransaction().begin();
+		
+		for (int i = 1; i < 20; i++) {
+			Integer key = Integer.valueOf(i);
+			 movie = entityManager.find(Movie.class, i);
+			
+			if(movie.getMeta().getTitle().equals(name)) {
+				break;
+			}
+		}
+
+		entityManager.getTransaction().commit();
+		
+		return movie;
+	}
+
+	private List<Movie> getMovies(EntityManager entityManager) {
+		List<Movie> result = new ArrayList<>();
+		Movie movie = null;
+		
+			entityManager.getTransaction().begin();
+		
+		for (int i = 1; i < 20; i++) {
+			Integer key = Integer.valueOf(i);
+			 movie = entityManager.find(Movie.class, i);
+			
+			result.add(movie);
+		}
+		
+		entityManager.getTransaction().commit();
+
+////		result.add(new Movie(getMeta(0)));
+//		result.add(new Movie(getMeta(1)));
+//		result.add(new Movie(getMeta(2)));
+
+		return result;
+
+	}
+	
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	//Language CRUD
+
+//	private List<Language> getSupportedLanguages(int key) {
+//
+//		List<Language> result = new ArrayList<>();
+//
+//		if (key <= 0) {
+//			key = 1;
+//		}
+//
+//		if (key >= 6) {
+//			key = 6;
+//		}
+//
+//		for (int i = 0; i < key; i++) {
+//			result.add(getLang(i + 1));
+//		}
+//
+//		return result;
+//	}
+
+//	private Language getLang(int key) {
+//		Language result = null;
+//		int val = key % 3;
+//
+//		switch (val) {
+//		case 0:
+//			result = Language.TAMIL;
+//			break;
+//
+//		case 1:
+//			result = Language.ENGLISH;
+//			break;
+//
+//		case 2:
+//			result = Language.HINDI;
+//			break;
+//
+//		default:
+//			result = Language.TAMIL;
+//			break;
+//
+//		}
+//
+//		return result;
+//	}
+
+//	private List<OTT> getSupportedOtts(int key) {
+//
+//		List<OTT> result = new ArrayList<>();
+//
+//		if (key <= 0) {
+//			key = 1;
+//		}
+//
+//		if (key >= 6) {
+//			key = 6;
+//		}
+//
+//		for (int i = 0; i < key; i++) {
+//			result.add(getOtt(i + 1));
+//		}
+//
+//		return result;
+//	}
+//
+//	private OTT getOtt(int key) {
+//		OTT result = null;
+//		int val = key % 3;
+//
+//		switch (val) {
+//		case 0:
+//			result = OTT.HOTSTAR;
+//			break;
+//
+//		case 1:
+//			result = OTT.HBO;
+//			break;
+//
+//		case 2:
+//			result = OTT.PRIME;
+//			break;
+//
+//		default:
+//			result = OTT.Zee;
+//			break;
+//
+//		}
+//
+//		return result;
+//	}
 
 	// ----------------------------------------------------------------------------------------------------------
+	
+	//repeated function
+//	public void readMovie(EntityManager entityManager, int inputKey) {
+//		entityManager.getTransaction().begin();
+//
+//		Integer key = Integer.valueOf(inputKey);
+//		Movie movie = entityManager.find(Movie.class, key);
+//		System.out.println(movie.getMeta().getTitle());
+//
+//		entityManager.getTransaction().commit();
+//	}
+
+	// ----------------------------------------------------------------------------------------------------------
+	
+	public void getWatchlist(EntityManager entityManager, int inputKey) {
+		entityManager.getTransaction().begin();
+
+		Integer key = Integer.valueOf(inputKey);
+		Watchlist watchlist = entityManager.find(Watchlist.class, key);
+	}
+	//-----------------------------------------------------------------------------------------------------------
 
 	private Set<Episode> getEpisodes(int key) {
 		Set<Episode> result = new HashSet<>();
