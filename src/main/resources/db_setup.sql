@@ -2,8 +2,6 @@ DROP DATABASE popcorndb;
 
 CREATE DATABASE popcorndb;
 
-
-;
 DROP TABLE movies CASCADE;
 DROP TABLE metas CASCADE;
 DROP TABLE episodes CASCADE;
@@ -56,7 +54,6 @@ CREATE TABLE metas (
 	studio			VARCHAR(60),
 	genres			VARCHAR(60),
 	trending_score_id	INT,
-	genres  VARCHAR(50),
 	supported_languages  VARCHAR(255),
 	supported_otts   VARCHAR(255),
 
@@ -65,9 +62,12 @@ CREATE TABLE metas (
 
 
 CREATE TABLE subscriptions(
-	id			SERIAL,
-	user_id		INT,
-	subscribed_otts   VARCHAR(255),
+	id					SERIAL,
+	user_id				INT,
+	plan				VARCHAR(255),
+	fee					FLOAT,
+	subscription_type 	VARCHAR(255),
+	subscribed_otts   	VARCHAR(255),
 	expiry		DATE,
 	
 	PRIMARY KEY (id)

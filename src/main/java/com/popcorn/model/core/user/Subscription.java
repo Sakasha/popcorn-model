@@ -2,13 +2,18 @@ package com.popcorn.model.core.user;
 
 import java.time.LocalDate;
 
+import com.popcorn.model.core.content.Meta;
 import com.popcorn.model.core.content.utils.OTT;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 
 @Entity(name = "subscriptions")
 public class Subscription {
@@ -18,27 +23,26 @@ public class Subscription {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int id;
 
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+	@JoinColumn(name = "user_id", referencedColumnName = "id")
+	int userId;
 
-	@Column(name = "subscribed_otts", nullable = false)
-	private OTT subscribed_ott;
+	@Column(name = "plan")
+	private String plan;
+	
+	@Column(name = "subscription_type")
+	private String subscriptionType;
+	
+	@Column(name = "subscribed_otts")
+	private OTT subscribedOtt;
+	
+	@Column(name = "fee")
+	private float fee;
 
 	@Column(name = "expiry")
 	LocalDate expiry;
 
 	public Subscription() {
-	}
-
-	public Subscription(int id, OTT subscribed_ott, LocalDate expiry) {
-		super();
-		this.id = id;
-		this.subscribed_ott = subscribed_ott;
-		this.expiry = expiry;
-	}
-
-	public Subscription(OTT subscribed_ott, LocalDate expiry) {
-		super();
-		this.subscribed_ott = subscribed_ott;
-		this.expiry = expiry;
 	}
 
 	public int getId() {
@@ -47,14 +51,6 @@ public class Subscription {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public OTT getSubscribed_ott() {
-		return subscribed_ott;
-	}
-
-	public void setSubscribed_ott(OTT subscribed_ott) {
-		this.subscribed_ott = subscribed_ott;
 	}
 
 	public LocalDate getExpiry() {

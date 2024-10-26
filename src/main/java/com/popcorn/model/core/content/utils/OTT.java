@@ -1,7 +1,7 @@
 package com.popcorn.model.core.content.utils;
 
 public enum OTT {
-	HBO("HBO"), HOTSTAR("HOTSTAR"), PRIME("PRIME"), Zee("ZEE");
+	NETFLIX("NETFLIX"), HOTSTAR("HOTSTAR"), PRIME("PRIME"), Zee("ZEE");
 
 	private final String ott;
 
