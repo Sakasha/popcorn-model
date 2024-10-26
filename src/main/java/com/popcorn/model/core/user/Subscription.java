@@ -2,7 +2,6 @@ package com.popcorn.model.core.user;
 
 import java.time.LocalDate;
 
-import com.popcorn.model.core.content.Meta;
 import com.popcorn.model.core.content.utils.OTT;
 
 import jakarta.persistence.CascadeType;
@@ -13,7 +12,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity(name = "subscriptions")
 public class Subscription {
@@ -22,10 +22,11 @@ public class Subscription {
 	@Column(name = "id", columnDefinition = "serial")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int id;
-
-	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-	@JoinColumn(name = "user_id", referencedColumnName = "id")
-	int userId;
+//
+//	
+//	@OneToMany(fetch = FetchType.EAGER)
+//	@JoinColumn(name = "user_id", referencedColumnName = "id")
+//	int userId;
 
 	@Column(name = "plan")
 	private String plan;
