@@ -42,6 +42,47 @@ public class Subscription {
 
 	@Column(name = "expiry")
 	LocalDate expiry;
+	
+	public Subscription(String plan, String subscriptionType, OTT subscribedOtt, float fee, LocalDate expiry) {
+		super();
+		this.plan = plan;
+		this.subscriptionType = subscriptionType;
+		this.subscribedOtt = subscribedOtt;
+		this.fee = fee;
+		this.expiry = expiry;
+	}
+
+	public String getPlan() {
+		return plan;
+	}
+
+	public void setPlan(String plan) {
+		this.plan = plan;
+	}
+
+	public String getSubscriptionType() {
+		return subscriptionType;
+	}
+
+	public void setSubscriptionType(String subscriptionType) {
+		this.subscriptionType = subscriptionType;
+	}
+
+	public OTT getSubscribedOtt() {
+		return subscribedOtt;
+	}
+
+	public void setSubscribedOtt(OTT subscribedOtt) {
+		this.subscribedOtt = subscribedOtt;
+	}
+
+	public float getFee() {
+		return fee;
+	}
+
+	public void setFee(float fee) {
+		this.fee = fee;
+	}
 
 	public Subscription() {
 	}
