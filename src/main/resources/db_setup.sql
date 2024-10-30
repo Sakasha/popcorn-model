@@ -49,6 +49,7 @@ CREATE TABLE metas (
 	release_date	DATE NOT NULL,
 	imdb_rate		FLOAT NOT NULL,
 	parental_rating	VARCHAR(5),
+	deescription	VARCHAR(511),
 	casts			VARCHAR(255),
 	director		VARCHAR(50),
 	studio			VARCHAR(60),
@@ -56,6 +57,7 @@ CREATE TABLE metas (
 	trending_score_id	INT,
 	supported_languages  VARCHAR(255),
 	supported_otts   VARCHAR(255),
+
 
 	PRIMARY KEY (id)
 );
